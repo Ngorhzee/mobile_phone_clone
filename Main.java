@@ -20,6 +20,52 @@ public class Main {
 	// Be sure not to expose the inner workings of the Arraylist to MobilePhone
 	// e.g. no ints, no .get(i) etc
 	// MobilePhone should do everything with Contact objects only.
+	public static void main(String[] args) {
+		
+		printOptions();
+		boolean quit = false;
+		while (!quit) {
+			System.out.println("What do you want to do");
+			int option = scanner.nextInt();
+
+			switch (option) {
+				case 1:
+					mobile.printContactList();
+					break;
+
+				case 2:
+					addNewContact();
+					break;
+				case 3:
+					removeContact();
+					break;
+				case 4:
+					searchContact();
+					break;
+
+				case 5:
+					modifyContact();
+					break;
+
+				case 6:
+					System.out.println("Quit");
+					quit = true;
+					break;
+
+			}
+		}
+
+	}
+
+	public static void printOptions(){
+		System.out.println("Option 1: Print contact List");
+		System.out.println("Option 2: Add new contact");
+		System.out.println("Option 3: Remove contact");
+		System.out.println("Option 4: Search contact ");
+		System.out.println("Option 5: Modify Existing contact ");
+		System.out.println("Option 6: Quit");
+	}
+
 	private static Scanner scanner = new Scanner(System.in);
 	static MobilePhone mobile = new MobilePhone();
 
@@ -101,46 +147,6 @@ public class Main {
 
 	}
 
-	public static void main(String[] args) {
-		System.out.println("Option 1: Print contact List");
-		System.out.println("Option 2: Add new contact");
-		System.out.println("Option 3: Remove contact");
-		System.out.println("Option 4: Search contact ");
-		System.out.println("Option 5: Modify Existing contact ");
-		System.out.println("Option 6: Quit");
-		while (true) {
-			System.out.println("What do you want to do");
-			int option = scanner.nextInt();
-
-			switch (option) {
-				case 1:
-					mobile.printContactList();
-					break;
-
-				case 2:
-					addNewContact();
-					break;
-				case 3:
-					removeContact();
-					break;
-				case 4:
-					searchContact();
-					break;
-
-				case 5:
-					modifyContact();
-					break;
-
-				case 6:
-					System.out.println("Quit");
-					break;
-				case 7:
-					int found = mobile.findContact(new Contacts("ngozi", "1234"));
-					System.out.println("Found contact " + found);
-
-			}
-		}
-
-	}
+	
 
 }
